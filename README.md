@@ -31,7 +31,7 @@ Important modifications are made to:
 ## Tests
 To run tests:
 
-1. `cd ipresence`
+1. `cd ipresence-symfony`
 2. `php bin/phpunit`
 
 Tests are located at `tests/Unit/Controller/QuoteControllerTest.php`.

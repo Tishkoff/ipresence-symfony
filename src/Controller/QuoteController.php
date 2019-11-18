@@ -16,7 +16,7 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 class QuoteController extends AbstractController
 {
     /**
-     * @var QuotesInterfrace
+     * @var QuotesInterface
      */
     private $repository;
 
@@ -31,6 +31,16 @@ class QuoteController extends AbstractController
     {
         parent::__construct($validator);
         $this->repository = $repository;
+    }
+
+    /**
+     * @Rest\Get("/")
+     *
+     * @return Response
+     */
+    public function index(): Response
+    {
+        return $this->handleView($this->view('Use /shout/steve-jobs?limit=5'));
     }
 
     /**

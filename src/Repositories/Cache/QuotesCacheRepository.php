@@ -2,7 +2,6 @@
 
 namespace App\Repositories\Cache;
 
-use App\Repositories\Data\QuotesDataRepository;
 use App\Repositories\Interfaces\QuotesInterface;
 use Psr\Cache\CacheItemPoolInterface;
 use Psr\Cache\InvalidArgumentException;
@@ -14,7 +13,7 @@ use Psr\Cache\InvalidArgumentException;
 class QuotesCacheRepository implements QuotesInterface
 {
     /**
-     * @var QuotesDataRepository
+     * @var QuotesInterface
      */
     protected $repository;
     /**

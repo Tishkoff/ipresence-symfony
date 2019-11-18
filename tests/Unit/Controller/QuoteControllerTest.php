@@ -10,7 +10,6 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
  */
 class QuoteControllerTest extends WebTestCase
 {
-
     /**
      * @return array
      */
@@ -70,7 +69,6 @@ class QuoteControllerTest extends WebTestCase
         ];
     }
 
-
     /**
      * @dataProvider provideSuccessfullUrls
      *
@@ -81,6 +79,7 @@ class QuoteControllerTest extends WebTestCase
         $client = static::createClient();
         $client->request('GET', $url);
         $response = $client->getResponse();
+
         $this->assertTrue($response->isSuccessful());
         $this->assertJson((string)$response->getContent());
     }
@@ -95,11 +94,10 @@ class QuoteControllerTest extends WebTestCase
         $client = static::createClient();
         $client->request('GET', $url);
         $response = $client->getResponse();
+
         $this->assertTrue($response->isNotFound());
         $this->assertJson((string)$response->getContent());
         $this->assertJsonStringEqualsJsonString('{"errors":{"author":"Not found"}}', (string)$response->getContent());
-
-
     }
 
     /**
@@ -111,11 +109,9 @@ class QuoteControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $client->request('GET', $url);
-
         $response = $client->getResponse();
+
         $this->assertSame($response->getStatusCode(), 422);
         $this->assertJson((string)$response->getContent());
     }
-
-
 }
